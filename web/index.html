@@ -20,28 +20,16 @@
     </section>
     <section id="button-container">
       <div class="button-group">
-        <button id="Sys"></button>
-        <p>Sys</p>
-      </div>
-      <div class="button-group">
-        <button id="Pentest"></button>
-        <p>Pentest</p>
-      </div>
-      <div class="button-group">
-        <button id="db"></button>
-        <p>db</p>
-      </div>
-      <div class="button-group">
-        <button id="web"></button>
-        <p>web</p>
+        <button id="src" onclick="show_section('src')">src</button>
+        <p>src</p>
       </div>
     </section>
 
-    <!-- Passive Dashboards -->
-     <section id="Sys_Dashboard" style="display: none;"></section>
-     <section id="Pentest_Dashboard" style="display: none;"></section>
-     <section id="db_Dashboard" style="display: none;"></section>
-     <section id="web_Dashboard" style="display: none;"></section>
+     <section id="folder" style="display: none;">
+        <a><h2>-empty-</h2></a>
+        <h3>preview(-latest-):</h3>
+        <ul id="file-list"></ul>
+     </section>
 
   </main>
   <script src="/static/disign.js"></script>
