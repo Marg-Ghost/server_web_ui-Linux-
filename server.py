@@ -24,7 +24,7 @@ Dashboard_ = Dashboard()
 
 ###################################
 ##main page
-##############################
+###################################
 @app.get("/")
 async def load_surface():
 	try:
@@ -38,7 +38,7 @@ async def load_surface():
 async def get_dashboard():
     return Dashboard_.get_all_data()
 
-@app.post("/dashboard/src")
+@app.get("/dashboard/src")
 async def dashboard_src(payload: dict):
 	try:
 		section = payload.get("section", "src")
@@ -58,7 +58,6 @@ async def load_src():
 		return folder.show_whole_dir()
 	except Exception as e:
 		raise HTTPException(status_code=500, detail=str(e))
-
 
 if __name__ == "__main__":
     import uvicorn
