@@ -38,6 +38,7 @@ pre { color: var(--muted); font: .53rem/1.5 'Space Mono', monospace; text-align:
 .top-panels { grid-column: span 3; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .metric-panel { min-height: 130px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; }
 .metric-icon { color: var(--ink); font: 3rem 'Rajdhani', sans-serif; text-align: center; }
+.metric-icon img { width: 48px; height: 48px; object-fit: contain; vertical-align: middle; }
 .metric-panel p { font-size: .78rem; text-align: center; }
 .progress-track { height: 19px; border: 2px solid var(--ink); background: #3b3b3b; }
 #drive_slider { height: 100%; width: 0; background: var(--accent); transition: width .4s ease; }
@@ -46,6 +47,7 @@ pre { color: var(--muted); font: .53rem/1.5 'Space Mono', monospace; text-align:
 .core-card { min-height: 72px; display: grid; place-items: end center; padding-bottom: 7px; border: 2px solid var(--ink); background: linear-gradient(to top, var(--accent) var(--load, 0%), #3a3a3a var(--load, 0%)); color: #111; font-size: .75rem; }
 .temperature-panel { grid-column: 3; padding: 20px 14px; text-align: center; }
 .thermometer { font-size: 3rem; }
+.thermometer img { width: 48px; height: 48px; object-fit: contain; vertical-align: middle; }
 .temperature-panel p { margin: 10px 0; font: 700 1.4rem 'Rajdhani', sans-serif; }
 .ram-panel { grid-column: 4; padding: 14px; text-align: center; }
 .ram-ring { width: 108px; aspect-ratio: 1; margin: 10px auto; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(var(--accent) var(--ram-load, 0%), #3a3a3a 0); }
