@@ -68,3 +68,9 @@ pre { color: var(--muted); font: .53rem/1.5 'Space Mono', monospace; text-align:
   .top-panels { grid-template-columns: 1fr; }
   .cpu-panel, .temperature-panel, .ram-panel, .usage-panel { grid-column: span 2; }
 }
+
+#img_ghost_avatar{
+	margin-bottom: -10%;
+	max-width: 100px; 
+	max-height: 150px;
+}
