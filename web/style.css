@@ -1,93 +1,126 @@
-:root{
-    --primary-color: #ff0000;
-    --secondary-color: #d65d5d;
-    --background-color: #ffffff;
-    --text-color: #000000;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ffffff;
 }
+
 body {
-    background-color: var(--background-color);
-}
-main {
-    margin-left: 35%; /* Lässt links Platz für den Code-Regen */
-    padding-left: 50px;
-    padding-top: 50px;
-    border-left: 6px solid var(--primary-color);
-    min-height: 80vh; /* Zieht die rote Linie schön weit nach unten */
-}
-#dashboard {
-    display: flex;
-    align-items: center; /* Zentriert Uhr und Box auf der gleichen Höhe */
-    gap: 40px;           /* Abstand zwischen Uhrzeit und Info-Box */
-    margin-bottom: 50px; /* Abstand nach unten zu den Buttons */
-}
-#Time {
-    color: var(--primary-color);
-    font-size: 4rem;
-    font-family: monospace; /* Oder eine spezifische Digital-Schriftart */
-    border-bottom: 1px solid #999; /* Der feine Strich unter der Uhrzeit */
-    display: inline-block;
-    padding-bottom: 5px;
-}
-#system-info {
-    background-color: #ffb3b3; /* Das helle Rot/Rosa im Inneren */
-    color: var(--text-color);
-    padding: 20px;
-    border: 10px solid var(--primary-color);
-    border-radius: 30px;
-    width: 350px; 
-    height: 200px;
-}
-button {
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 12px; /* Die leicht abgerundeten Ecken aus dem Bild */
-    transform: rotate(45deg); /* Dreht das Quadrat zur Raute */
-    margin: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-button:hover {
-    filter: brightness(0.8); /* Simpler Hover-Effekt */
-}
-#button-container {
-    display: flex;
-    gap: 30px; /* Abstand zwischen den einzelnen Button-Gruppen */
-    padding-bottom: 20px;
-    border-bottom: 1px solid #999; /* Die feine Linie unter den Buttons */
-    width: max-content;
-}
-
-.button-group {
-    display: flex;
-    flex-direction: column; /* Stapelt Button und Text vertikal */
-    align-items: center;    /* Zentriert den Text unter der Raute */
-}
-
-.button-group p {
-    margin-top: 10px;
-    color: var(--primary-color);
-    font-family: sans-serif;
-}
+/* Canvas als Hintergrund links */
 #ghost-canvas {
-    position: absolute;
-    top: 50px;
-    left: 5%;
-    width: 25%;
-    height: 80vh;
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
-    /* Masken-Effekt - benötigt ein Bild mit transparentem Hintergrund */
-    -webkit-mask-image: url('margr.png');
-    mask-image: url('margr.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
+/* Haupt-Raster-Layout */
+main {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 15px;
+  width: 900px;
+  max-width: 95vw;
+  background-color: #121212;
+  border: 4px solid #ffffff;
+  padding: 15px;
+}
+
+/* Mittlere Haupt-Sektion (Folder Preview) */
+#folder {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  border: 3px solid #ffffff;
+  padding: 15px;
+  background-color: #121212;
+}
+
+#folder h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+#folder h3 {
+  font-weight: normal;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+#file-list {
+  list-style: none;
+}
+
+#file-list li {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* Rechte Spalte: System-Infos & Dashboard */
+#dashboard {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#Time {
+  border: 3px solid #ffffff;
+  padding: 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  background-color: #121212;
+}
+
+#system-info {
+  border: 3px solid #ffffff;
+  padding: 10px;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #121212;
+}
+
+/* Kategorien / Buttons unten rechts */
+#button-container {
+  grid-column: 2 / 3;
+  border: 3px solid #ffffff;
+  padding: 15px;
+  text-align: center;
+  background-color: #121212;
+}
+
+#button-container::before {
+  content: "Categories:";
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.button-group button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button-group button:hover {
+  color: #aaa;
 }
