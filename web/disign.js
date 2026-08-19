@@ -1,7 +1,6 @@
 const canvas = document.getElementById('ghost-canvas');
 const ctx = canvas.getContext('2d');
 
-// Größe des Canvas an das CSS anpassen
 function resizeCanvas() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
@@ -27,7 +26,7 @@ function draw() {
     ctx.fillStyle = "rgba(255, 255, 255, 0.1)"; 
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#ff0000"; // Deine rote --primary-color
+    ctx.fillStyle = "#ffffff"; // Deine rote --primary-color
     ctx.font = "bold " + fontSize + "px monospace";
 
     for(let i = 0; i < drops.length; i++) {

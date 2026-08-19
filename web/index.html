@@ -4,33 +4,68 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/static/style.css">
-  <title>Kali Dashboard</title>
+  <title>Server-Dashboard</title>
 </head>
 <body>
-  <canvas id="ghost-canvas"></canvas>
-  <main>
-    <section id="dashboard">
-      <p id="Time">Time: Lädt...</p>
-        <section id="system-info">
-          <p id="cpu_temp">CPU Temp: Lädt...</p>
-          <p id="cpu_load">CPU Load: Lädt...</p>
-          <p id="disk_free">Disk Free: Lädt...</p>
-          <p id="ram_free">RAM Info: Lädt...</p>
-        </section>
+  <main class="dashboard-shell">
+    <header class="topbar">
+      <div class="brand-mark">MARG</div>
+      <h1>Server-Dashboard</h1>
+    </header>
+    <section class="dashboard-grid">
+      <article class="panel profile-panel">
+        <canvas id="ghost-canvas" aria-hidden="true"></canvas>
+        <div class="profile-content">
+          <span class="panel-kicker">Identity</span>
+          <h2>User:</h2>
+          <p id="username">marg_ghost</p>
+          <div class="rule"></div>
+          <pre id="fastfetch">server monitor // online</pre>
+        </div>
+      </article>
+      <section class="top-panels">
+        <article class="panel metric-panel drive-panel">
+          <div class="metric-icon">▣</div>
+          <div class="progress-track"><div id="drive_slider"></div></div>
+          <p id="disk_free">0 / 0 GiB</p>
+        </article>
+        <article class="panel metric-panel time-panel">
+          <div class="metric-icon">◷</div>
+          <p id="c_date">00.00.0000</p>
+          <p id="c_time">00:00:00</p>
+        </article>
+        <article class="panel metric-panel network-panel">
+          <div class="metric-icon">◉</div>
+          <p id="eth">Ethernet: --</p>
+          <p id="wlan">Wi-Fi: --</p>
+        </article>
+      </section>
+      <article class="panel cpu-panel">
+        <h2>CPU</h2>
+        <div class="core-grid">
+          <div id="core1" class="core-card">--</div>
+          <div id="core2" class="core-card">--</div>
+          <div id="core3" class="core-card">--</div>
+          <div id="core4" class="core-card">--</div>
+        </div>
+      </article>
+      <article class="panel temperature-panel">
+        <div class="thermometer">♨</div>
+        <p id="temp_number">0.0 °C</p>
+        <span>CPU temperature</span>
+      </article>
+      <article class="panel ram-panel">
+        <h2>RAM</h2>
+        <div id="ram_ring" class="ram-ring"><div></div></div>
+        <p id="ram_size">0 / 0 GiB</p>
+        <span>memory usage</span>
+      </article>
+      <article class="panel usage-panel">
+        <h2>Most usage</h2>
+        <div class="usage-row"><span>system</span><strong>monitor</strong></div>
+        <div class="usage-row"><span>status</span><strong id="status">online</strong></div>
+      </article>
     </section>
-    <section id="button-container">
-      <div class="button-group">
-        <button id="src" onclick="show_section('src')">src</button>
-        <p>src</p>
-      </div>
-    </section>
-
-     <section id="folder" style="display: none;">
-        <a><h2>-empty-</h2></a>
-        <h3>preview(-latest-):</h3>
-        <ul id="file-list"></ul>
-     </section>
-
   </main>
   <script src="/static/disign.js"></script>
   <script src="/static/main.js"></script>
